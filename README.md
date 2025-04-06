@@ -186,7 +186,7 @@ The following diagrams are available in the `Diagrammes` folder:
 Coo-HMS/
 ├── README.md
 ├── Spec/
-│   └── Specification.pdf                 # Full specification document
+│   └── HMS_Spec.pdf                 # Full specification document
 └── Diagrammes/
     ├── use_case_diagram.pu               # Use case diagram (PlantUML)
     ├── book_room_sequence.pu             # Sequence diagram for "Book a Room"
