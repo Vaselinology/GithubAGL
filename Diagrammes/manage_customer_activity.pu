@@ -1,0 +1,31 @@
+@startuml
+start
+
+:Login as Receptionist or Manager;
+:Open Customer Management Module;
+if (Create / Edit / Delete?) then (Create)
+  :Enter Customer Info;
+  if (Data Valid?) then (Yes)
+    :Save to Database;
+    :Show Success Message;
+  else (No)
+    :Show Error Message;
+  endif
+elseif (Edit)
+  :Select Existing Customer;
+  :Edit Customer Info;
+  :Update in Database;
+  :Show Success Message;
+elseif (Delete)
+  :Select Customer;
+  :Confirm Deletion;
+  if (Confirmed?) then (Yes)
+    :Delete from Database;
+    :Show Deleted;
+  else (No)
+    :Cancel Deletion;
+  endif
+endif
+
+stop
+@enduml

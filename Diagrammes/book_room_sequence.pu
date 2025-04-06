@@ -1,0 +1,26 @@
+@startuml
+actor User
+participant "Booking UI" as UI
+participant "Booking Controller" as Controller
+participant "Room Service" as RoomService
+participant "Payment Service" as Payment
+participant "Database" as DB
+
+User -> UI : Select dates and room type
+UI -> Controller : submitBookingRequest()
+Controller -> RoomService : checkAvailability()
+RoomService -> DB : queryAvailableRooms()
+DB --> RoomService : list of rooms
+RoomService --> Controller : available rooms
+Controller -> UI : showAvailableRooms()
+
+User -> UI : select room and enter details
+UI -> Controller : confirmBooking()
+Controller -> Payment : processPayment()
+Payment -> DB : storePaymentDetails()
+DB --> Payment : confirmation
+Payment --> Controller : paymentSuccess
+Controller -> DB : storeBooking()
+DB --> Controller : bookingID
+Controller -> UI : showBookingConfirmation()
+@enduml
