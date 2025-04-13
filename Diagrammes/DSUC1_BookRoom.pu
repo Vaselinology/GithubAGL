@@ -1,0 +1,27 @@
+@startuml
+actor Customer
+participant UI
+participant BookingController
+participant RoomService
+participant PaymentService
+participant Database
+
+Customer -> UI : Fill in booking form
+UI -> BookingController : submitBooking(data)
+BookingController -> RoomService : checkAvailability(data)
+RoomService -> Database : queryAvailableRooms()
+Database --> RoomService : list of rooms
+RoomService --> BookingController : roomAvailable
+
+alt Room available
+  BookingController -> PaymentService : processPayment()
+  PaymentService -> Database : savePayment()
+  Database --> PaymentService : paymentConfirmed
+  PaymentService --> BookingController : paymentSuccess
+  BookingController -> Database : saveBooking()
+  Database --> BookingController : bookingConfirmed
+  BookingController -> UI : showConfirmation()
+else No room available
+  BookingController -> UI : showError("No rooms available")
+end
+@enduml
