@@ -224,6 +224,7 @@ The following diagrams are available in the `Diagrammes` folder:
 Coo-HMS/
 ├── README.md
 ├── Spec/
+├── ├── HMS_conceptionPreliminaire.pdf
 │   └── HMS_Spec.pdf                 # Full specification document
 └── Diagrammes/
     ├── use_case_diagram.pu               # Use case diagram (PlantUML)
