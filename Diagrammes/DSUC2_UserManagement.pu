@@ -1,0 +1,73 @@
+@startuml
+actor Admin
+participant "Admin Interface" as UI
+participant "User Controller" as Controller
+participant "User List (Database)" as DB
+
+== Add User ==
+Admin -> UI : Select "Add User"
+UI -> Controller : Request Add User
+Controller -> UI : Prompt for User Details
+Admin -> UI : Enter user details
+UI -> Controller : Submit user details
+Controller -> DB : Add new user
+
+alt Success
+    DB --> Controller : User added
+    Controller -> UI : Show success message
+else Failure
+    DB --> Controller : Error message
+    Controller -> UI : Show error message
+end
+
+== Edit User ==
+Admin -> UI : Select User to Edit
+UI -> Controller : Request User Details
+Controller -> DB : Fetch user data
+
+alt User Found
+    DB --> Controller : User details
+    Controller -> UI : Show user details
+    Admin -> UI : Edit user details
+    UI -> Controller : Submit updated details
+    Controller -> DB : Update user record
+
+    alt Update Successful
+        DB --> Controller : Update confirmed
+        Controller -> UI : Show success message
+    else Update Failed
+        DB --> Controller : Update error
+        Controller -> UI : Show error message
+    end
+
+else User Not Found
+    DB --> Controller : User not found
+    Controller -> UI : Show "User not found" message
+end
+
+== Delete User ==
+Admin -> UI : Select User to Delete
+UI -> Controller : Send User ID
+Controller -> DB : Delete user
+
+alt Deletion Successful
+    DB --> Controller : Confirm deletion
+    Controller -> UI : Show success message
+else Deletion Failed
+    DB --> Controller : Deletion error
+    Controller -> UI : Show error message
+end
+
+== View Users ==
+Admin -> UI : Select "View Users"
+UI -> Controller : Request user list
+Controller -> DB : Fetch all users
+
+alt Users Found
+    DB --> Controller : Return user list
+    Controller -> UI : Display user list
+else No Users Found
+    DB --> Controller : Return empty list
+    Controller -> UI : Show "No users found"
+end
+@enduml
