@@ -12,8 +12,8 @@ The Hotel Management System (HMS) is a Java-based application designed to stream
   - Administrators (manage rooms/users/bookings)  
   - Guests (book rooms, view reservations)  
 - **In-memory data storage**: Uses Java `ArrayLists` (no database)  
-- **GUI**: Built with NetBeans (Swing) for usability  
-
+- **Design phase**: Preliminary UML diagrams (class/sequence) for Sprint 1.
+  
 ### 1.2 Motivations  
 - Address inefficiencies in manual hotel management  
 - Provide a scalable solution for small to mid-sized hotels  
@@ -21,9 +21,47 @@ The Hotel Management System (HMS) is a Java-based application designed to stream
 
 ---
 
-## 2. Specification  
+## 2. System Design  
 
-### 2.1 Key Concepts & Constraints  
+### 2.1 Static Aspects (Class Diagram)  
+**Key classes**:  
+```plaintext
+User (Abstract)
+├── Guest
+└── Administrator
+
+Room
+- roomNumber: int
+- price: double
+- isAvailable: boolean
+
+Booking
+- bookingId: int
+- startDate: LocalDate
+- endDate: LocalDate
+- status: PaymentStatus (enum)
+---
+Associations:
+
+Booking → User (1:1)
+Booking → Room (1:1)
+Hotel → Room (1:*)
+Diagram: See classDiagram.svg (PlantUML source in Diagrammes/).
+---
+2.2 Dynamic Aspects (Sequence Diagrams)
+
+Selected use cases for Sprint 1:
+
+Room Booking (DSUC1)
+Precondition: User logged in, room available.
+Diagram: /Diagrammes/DSUC1_BookRoom.pu.
+User Management (DSUC2)
+Covers: Add/Edit/Delete users (Admin only).
+Diagram: /Diagrammes/DSUC2_UserManagement.pu
+---
+## 3. Specification  
+
+### 3.1 Key Concepts & Constraints  
 
 #### Actors:  
 - **Admin**: Manages rooms, bookings, and user accounts  
@@ -46,7 +84,7 @@ The Hotel Management System (HMS) is a Java-based application designed to stream
 
 ---
 
-### 2.2 Functionalities  
+### 3.2 Functionalities  
 
 #### User Perspective:  
 | Functionality    | Description                          | Precondition                     |  
