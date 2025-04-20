@@ -1,0 +1,59 @@
+@startuml
+class Hotel {
+  - nom: String {not null}
+  - adresse: String {not null}
+  - etoiles: int {range: 1..5}
+  - rooms: List<Room> {ordered}
+  - users: List<User>
+  + addRoom(room: Room): void
+  + addUser(user: User): void
+}
+
+class Gestionnaire {
+  - hotel: Hotel {readOnly}
+  - bookings: List<Booking> {ordered}
+  - users: List<User>
+  - rooms: List<Room>
+  - sc: Scanner {transient}
+  + createBooking(user: User, room: Room, dateDebut: LocalDate, dateFin: LocalDate): Booking
+  + cancelBooking(booking: Booking): void
+}
+
+class Booking {
+  - id: int {unique, readOnly}
+  - user: User {not null}
+  - room: Room {not null}
+  - dateDebut: LocalDate {not null}
+  - dateFin: LocalDate {not null, constraint: dateFin > dateDebut}
+  - status: BookingStatus {enum: PENDING, CONFIRMED, CANCELLED, CHECKED_IN, CHECKED_OUT}
+  + calculateTotal(): float
+}
+
+class User {
+  - userId: int {unique, readOnly}
+  - firstName: String {not null}
+  - lastName: String {not null}
+  - email: String {unique, format: email}
+  - phoneNumber: String {pattern: "^\\+?[0-9\\-]+$"}
+  - password: String {encrypted}
+  + authenticate(password: String): boolean
+}
+
+class Room {
+  - roomNumber: int {unique, readOnly}
+  - price: float {min: 0.0}
+  - bedType: String {enum: SINGLE, DOUBLE, SUITE}
+  - description: String
+  - available: boolean {default: true}
+  - status: RoomStatus {enum: AVAILABLE, OCCUPIED, MAINTENANCE}
+  + isAvailable(): boolean
+}
+
+' --- Associations ---
+Hotel "1" *-- "1" Gestionnaire : manages
+Hotel "1" *-- "*" Room : contains <
+Hotel "1" o-- "*" User : contains
+Gestionnaire "1" -- "*" Booking : creates
+Booking "1" -- "1" User : belongs to >
+Booking "1" -- "1" Room : books >
+@enduml
