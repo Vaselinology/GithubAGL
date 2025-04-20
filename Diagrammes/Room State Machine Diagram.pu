@@ -1,0 +1,10 @@
+@startuml
+state "AVAILABLE" as available
+state "OCCUPIED" as occupied
+state "MAINTENANCE" as maintenance
+
+[*] --> available
+available --> occupied : /book()
+occupied --> available : /clean()
+available --> maintenance : /requestRepair()
+maintenance --> available : /completeRepair()

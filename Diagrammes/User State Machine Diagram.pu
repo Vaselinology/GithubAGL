@@ -1,0 +1,12 @@
+@startuml
+state "UNREGISTERED" as unregistered
+state "REGISTERED" as registered
+state "ACTIVE" as active
+state "BLOCKED" as blocked
+
+[*] --> unregistered
+unregistered --> registered : /register()
+registered --> active : /login()
+active --> blocked : /suspend()
+blocked --> active : /reactivate()
+active --> [*] : /deleteAccount()

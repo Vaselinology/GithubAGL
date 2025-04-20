@@ -1,0 +1,14 @@
+@startuml
+state "PENDING" as pending
+state "CONFIRMED" as confirmed
+state "CHECKED_IN" as checked_in
+state "CHECKED_OUT" as checked_out
+state "CANCELLED" as cancelled
+
+[*] --> pending
+pending --> confirmed : /processPayment()
+pending --> cancelled : cancel()
+confirmed --> checked_in : /assignRoom()
+confirmed --> cancelled : cancel()
+checked_in --> checked_out : /generateBill()
+checked_out --> [*]
