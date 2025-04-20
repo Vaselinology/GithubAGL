@@ -11,7 +11,6 @@ The Hotel Management System (HMS) is a Java-based application designed to stream
 - **Two user roles**:  
   - Administrators (manage rooms/users/bookings)  
   - Guests (book rooms, view reservations)  
-- **In-memory data storage**: Uses Java `ArrayLists` (no database)  
 - **Design phase**: Preliminary UML diagrams (class/sequence) for Sprint 1.
   
 ### 1.2 Motivations  
