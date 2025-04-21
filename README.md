@@ -193,16 +193,26 @@ User Management (DSUC2)<br>
 
 The following diagrams are available in the `Diagrammes` folder:
 
-- `use_case_diagram.pu` / `use_case_diagram.svg` – General use case diagram
-- `book_room_sequence.pu` / `book_room_sequence.svg` – Sequence diagram for booking
-- `manage_customer_activity.pu` / `manage_customer_activity.svg` – Activity diagram for managing customers
-- `ClassDiagram.pu` / `classDiagram.svg` - Version one (simplified) class diagram
-- `DSUC1_BookRoom.pu` / `bookRoom.svg` - Sequence diagram for booking a room
-- `DSUC2_UserManagement.pu` / `manageUsers.svg` - Sequence diagram for managing users
-- `Room State Machine Diagram.pu` / `Room State Machine Diagram.svg` - Machine state diagram for rooms
-- `User State Machine Diagram.pu` / `User State Machine Diagram.svg` - Machine state diagram for users
-- `Booking State Machine Diagram.pu` / `Booking State Machine Diagram.svg` - Machine state diagram for booking a room
-- `ClassDiagram-v2.pu` / `ClassDiagram-v2.svg` - Version 2 (more detailed) class diagram
+- `use_case_diagram.pu` / `use_case_diagram.svg` – General use case diagram <br>
+  ![Alt text](diagrammes/use_case_diagram.svg) <br>
+- `book_room_sequence.pu` / `book_room_sequence.svg` – Sequence diagram for booking <br>
+  ![Alt text](diagrammes/book_room_sequence.svg) <br>
+- `manage_customer_activity.pu` / `manage_customer_activity.svg` – Activity diagram for managing customers <br>
+  ![Alt text](diagrammes/manage_customer_activity.svg) <br>
+- `ClassDiagram.pu` / `classDiagram.svg` - Version one (simplified) class diagram <br>
+  ![Alt text](diagrammes/classDiagram.svg) <br>
+- `DSUC1_BookRoom.pu` / `bookRoom.svg` - Sequence diagram for booking a room <br>
+  ![Alt text](diagrammes/bookRoom.svg) <br>
+- `DSUC2_UserManagement.pu` / `manageUsers.svg` - Sequence diagram for managing users <br>
+  ![Alt text](diagrammes/manageUsers.svg) <br>
+- `Room State Machine Diagram.pu` / `Room State Machine Diagram.svg` - Machine state diagram for rooms <br>
+  ![Alt text](diagrammes/Room State Machine Diagram.svg) <br>
+- `User State Machine Diagram.pu` / `User State Machine Diagram.svg` - Machine state diagram for users <br>
+  ![Alt text](diagrammes/User State Machine Diagram.svg) <br>
+- `Booking State Machine Diagram.pu` / `Booking State Machine Diagram.svg` - Machine state diagram for booking a room <br>
+  ![Alt text](diagrammes/Booking State Machine Diagram.svg) <br>
+- `ClassDiagram-v2.pu` / `ClassDiagram-v2.svg` - Version 2 (more detailed) class diagram <br>
+  ![Alt text](diagrammes/ClassDiagram-v2.svg) <br>
 
 ---
 
