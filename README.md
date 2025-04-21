@@ -28,35 +28,43 @@ The Hotel Management System (HMS) is a Java-based application designed to stream
 User (Abstract)
 ├── Guest
 └── Administrator
+```
 
+```plaintext
 Room
 - roomNumber: int
 - price: double
 - isAvailable: boolean
+```
 
+```plaintext
 Booking
 - bookingId: int
 - startDate: LocalDate
 - endDate: LocalDate
 - status: PaymentStatus (enum)
+```
+
 ---
 Associations:
-
+```plaintext
 Booking → User (1:1)
 Booking → Room (1:1)
 Hotel → Room (1:*)
 Diagram: See classDiagram.svg (PlantUML source in Diagrammes/).
+```
 ---
-2.2 Dynamic Aspects (Sequence Diagrams)
+### 2.2 Dynamic Aspects (Sequence Diagrams)
 
 Selected use cases for Sprint 1:
 
-Room Booking (DSUC1)
-Precondition: User logged in, room available.
-Diagram: /Diagrammes/DSUC1_BookRoom.pu.
-User Management (DSUC2)
-Covers: Add/Edit/Delete users (Admin only).
-Diagram: /Diagrammes/DSUC2_UserManagement.pu
+<p>Room Booking (DSUC1)<br>
+**Precondition:** User logged in, room available.<br>
+**Diagram:** /Diagrammes/DSUC1_BookRoom.pu.<br>
+User Management (DSUC2)<br>
+**Covers:** Add/Edit/Delete users (Admin only).<br>
+**Diagram:** /Diagrammes/DSUC2_UserManagement.pu<br></p>
+
 ---
 ## 3. Specification  
 
@@ -72,7 +80,6 @@ Diagram: /Diagrammes/DSUC2_UserManagement.pu
 3. **Response**: Displays results in UI  
 
 #### Constraints:  
-- ❌ No persistent storage (data lost on app closure)  
 - ❌ Simplified payment simulation (no real gateway)  
 - ❌ No advanced reporting features  
 
@@ -108,18 +115,17 @@ Diagram: /Diagrammes/DSUC2_UserManagement.pu
 | Register       | High     | Essential for transactions      |  
 | Cancel Booking | Medium   | Secondary to booking            |  
 
----
 
 ---
 
 ## Table of Contents
 
-- [Project Features](#project-features)
-- [Use Case 1: Book a Room](#use-case-1-book-a-room)
-- [Use Case 2: Manage Customers](#use-case-2-manage-customers)
-- [UML Diagrams](#uml-diagrams)
-- [Validation Tables](#validation-tables)
-- [Directory Structure](#directory-structure)
+- Project Features
+- Use Case 1: Book a Room
+- Use Case 2: Manage Customers
+- UML Diagrams
+- Validation Tables
+- Directory Structure
 
 ---
 
@@ -220,15 +226,15 @@ The following diagrams are available in the `Diagrammes` folder:
 
 ## Directory Structure
 
-Coo-HMS/
-├── README.md
-├── Spec/
-├── ├── HMS_conceptionPreliminaire.pdf
-│   └── HMS_Spec.pdf                 # Full specification document
-└── Diagrammes/
-    ├── use_case_diagram.pu               # Use case diagram (PlantUML)
-    ├── book_room_sequence.pu             # Sequence diagram for "Book a Room"
-    └── manage_customer_activity.pu       # Activity diagram for "Manage Customers"
+Coo-HMS/<br>
+├── README.md<br>
+├── Spec/<br>
+├── ├── HMS_conceptionPreliminaire.pdf<br>
+│   └── HMS_Spec.pdf                 # Full specification document<br>
+└── Diagrammes/<br>
+    ├── use_case_diagram.pu               # Use case diagram (PlantUML)<br>
+    ├── book_room_sequence.pu             # Sequence diagram for "Book a Room"<br>
+    └── manage_customer_activity.pu       # Activity diagram for "Manage Customers"<br>
 
             
 
