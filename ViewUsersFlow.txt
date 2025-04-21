@@ -1,7 +1,0 @@
-Admin selects "View Users" in UI
-UI requests user list from UserController
-UserController fetches all users from database
-if users_found:
-    UI displays user list
-else:
-    UI shows "No users found" message
