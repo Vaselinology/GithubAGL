@@ -1,0 +1,23 @@
+// Admin initiates booking
+Admin selects "Book Room" in UI
+
+UI sends booking request to BookingController
+
+BookingController prompts for booking details
+
+Admin enters booking details in UI
+
+UI submits details to BookingController
+
+BookingController validates details
+if details_valid:
+    BookingController creates new Booking (PENDING state)
+    BookingController processes payment
+    if payment_successful:
+        BookingController assigns room
+        BookingController confirms booking
+        UI shows success message
+    else:
+        UI shows payment error
+else:
+    UI shows validation error

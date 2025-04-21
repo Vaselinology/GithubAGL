@@ -1,0 +1,14 @@
+Admin selects user to edit in UI
+UI requests user details from UserController
+UserController fetches user from database
+if user_found:
+    UI displays user details
+    Admin edits details in UI
+    UI submits updated details to UserController
+    UserController updates user in database
+    if successful:
+        UI shows success message
+    else:
+        UI shows error message
+else:
+    UI shows "User not found" message
