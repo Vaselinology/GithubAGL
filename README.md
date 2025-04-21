@@ -24,20 +24,20 @@ The Hotel Management System (HMS) is a Java-based application designed to stream
 
 ### 2.1 Static Aspects (Class Diagram)  
 **Key classes**:  
-```plaintext
+```
 User (Abstract)
 ├── Guest
 └── Administrator
 ```
 
-```plaintext
+```
 Room
 - roomNumber: int
 - price: double
 - isAvailable: boolean
 ```
 
-```plaintext
+```
 Booking
 - bookingId: int
 - startDate: LocalDate
@@ -47,7 +47,7 @@ Booking
 
 ---
 Associations:
-```plaintext
+```
 Booking → User (1:1)
 Booking → Room (1:1)
 Hotel → Room (1:*)
@@ -232,16 +232,38 @@ The following diagrams are available in the `Diagrammes` folder:
 ---
 
 ## Directory Structure
-
-Coo-HMS/<br>
-├── README.md<br>
-├── Spec/<br>
-├── ├── HMS_conceptionPreliminaire.pdf<br>
-│   └── HMS_Spec.pdf                 # Full specification document<br>
-└── Diagrammes/<br>
-    ├── use_case_diagram.pu               # Use case diagram (PlantUML)<br>
-    ├── book_room_sequence.pu             # Sequence diagram for "Book a Room"<br>
-    └── manage_customer_activity.pu       # Activity diagram for "Manage Customers"<br>
-
-            
-
+```
+Coo-HMS/
+├── README.md 
+├── Spec/ 
+│   ├── HMS_conceptionPreliminaire.pdf
+│   └── HMS_Spec.pdf                 # Full specification document
+└── Diagrammes/
+│   ├── use_case_diagram.pu 
+│   ├── book_room_sequence.pu 
+│   ├── manage_customer_activity.pu 
+│   ├── use_case_diagram.svg  
+│   ├── book_room_sequence.svg     
+│   ├── manage_customer_activity.svg     
+│   ├── ClassDiagram.pu     
+│   ├── classDiagram.svg    
+│   ├── DSUC1_BookRoom.pu   
+│   ├── bookRoom.svg       
+│   ├── DSUC2_UserManagement.pu      
+│   ├── manageUsers.svg      
+│   ├── Room State Machine Diagram.pu    
+│   ├── Room State Machine Diagram.svg    
+│   ├── User State Machine Diagram.pu     
+│   ├── User State Machine Diagram.svg     
+│   ├── Booking State Machine Diagram.pu      
+│   ├── Booking State Machine Diagram.svg      
+│   ├── ClassDiagram-v2.pu   
+│   └── ClassDiagram-v2.svg      
+└── src/
+    └── code/
+        ├── booking.java              
+        ├── gestionnaire.java             
+        ├── hotel.java
+        ├── room.java
+        └── user.java 
+```
