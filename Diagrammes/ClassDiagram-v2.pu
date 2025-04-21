@@ -1,4 +1,27 @@
 @startuml
+
+' --- Enumerations ---
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  CHECKED_IN
+  CHECKED_OUT
+}
+
+enum RoomStatus {
+  AVAILABLE
+  OCCUPIED
+  MAINTENANCE
+}
+
+enum BedType {
+  SINGLE
+  DOUBLE
+  SUITE
+}
+
+' --- Classes ---
 class Hotel {
   - nom: String {not null}
   - adresse: String {not null}
@@ -25,7 +48,7 @@ class Booking {
   - room: Room {not null}
   - dateDebut: LocalDate {not null}
   - dateFin: LocalDate {not null, constraint: dateFin > dateDebut}
-  - status: BookingStatus {enum: PENDING, CONFIRMED, CANCELLED, CHECKED_IN, CHECKED_OUT}
+  - status: BookingStatus
   + calculateTotal(): float
 }
 
@@ -42,18 +65,24 @@ class User {
 class Room {
   - roomNumber: int {unique, readOnly}
   - price: float {min: 0.0}
-  - bedType: String {enum: SINGLE, DOUBLE, SUITE}
+  - bedType: BedType
   - description: String
   - available: boolean {default: true}
-  - status: RoomStatus {enum: AVAILABLE, OCCUPIED, MAINTENANCE}
+  - status: RoomStatus
   + isAvailable(): boolean
 }
 
-' --- Associations ---
+' --- Associations with proper arrows ---
 Hotel "1" *-- "1" Gestionnaire : manages
-Hotel "1" *-- "*" Room : contains <
-Hotel "1" o-- "*" User : contains
-Gestionnaire "1" -- "*" Booking : creates
-Booking "1" -- "1" User : belongs to >
-Booking "1" -- "1" Room : books >
+Hotel "1" *-- "0..*" Room : contains <
+Hotel "1" o-- "0..*" User : contains
+Gestionnaire "1" --> "0..*" Booking : creates
+Booking "1" --> "1" User : belongs to >
+Booking "1" --> "1" Room : books >
+
+' --- Enumeration relationships ---
+BookingStatus .. Booking : status >
+RoomStatus .. Room : status >
+BedType .. Room : bedType >
+
 @enduml
