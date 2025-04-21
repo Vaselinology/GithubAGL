@@ -197,10 +197,8 @@ The following diagrams are available in the `Diagrammes` folder:
 - `book_room_sequence.pu` / `book_room_sequence.svg` – Sequence diagram for booking
 - `manage_customer_activity.pu` / `manage_customer_activity.svg` – Activity diagram for managing customers
 - `ClassDiagram.pu` / `classDiagram.svg` - Version one (simplified) class diagram
-- `bookRoom.svg` - Sequence diagram for booking a room
-- `manageUsers.svg` - Sequence diagram for managing users
-- `DSUC1_BookRoom.pu` - Sequence diagram for booking a room
-- `DSUC2_UserManagement.pu` - Sequence diagram for managing users
+- `DSUC1_BookRoom.pu` / `bookRoom.svg` - Sequence diagram for booking a room
+- `DSUC2_UserManagement.pu` / `manageUsers.svg` - Sequence diagram for managing users
 - `Room State Machine Diagram.pu` / `Room State Machine Diagram.svg` - Machine state diagram for rooms
 - `User State Machine Diagram.pu` / `User State Machine Diagram.svg` - Machine state diagram for users
 - `Booking State Machine Diagram.pu` / `Booking State Machine Diagram.svg` - Machine state diagram for booking a room
