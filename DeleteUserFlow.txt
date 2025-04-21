@@ -1,0 +1,7 @@
+Admin selects user to delete in UI
+UI sends user ID to UserController
+UserController deletes user from database
+if successful:
+    UI shows success message
+else:
+    UI shows error message
